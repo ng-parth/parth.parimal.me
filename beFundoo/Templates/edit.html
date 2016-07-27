@@ -1,0 +1,42 @@
+﻿<div authenticate ng-init="initEditStock()">
+    <div class="row-fluid">
+        <div class="pull-left">
+            <b>{{loggedInUser}}</b>
+            <a ng-click="signOut()">Sign Out</a>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <form class="form-horizontal" name="updateStockForm">
+            <div class="control-group">
+                <label class="control-label">Id <span class="text-error">*</span></label>
+                <div class="controls">
+                    <input type="text" placeholder="Id" ng-model="updStock.id" required>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Name <span class="text-error">*</span></label>
+                <div class="controls">
+                    <input type="text" placeholder="Name" ng-model="updStock.name" required>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Previous Price<span class="text-error">*</span></label>
+                <div class="controls">
+                    <input type="number" placeholder="Previous" ng-model="updStock.previous" required>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Current    Price <span class="text-error">*</span></label>
+                <div class="controls">
+                    <input type="number" placeholder="Price" ng-model="updStock.price" required>
+                </div>
+            </div>
+            <span class="text-error">*</span> indicates required fields.
+        <div class="control-group">
+            <div class="controls">
+                <button class="btn btn-info" ng-disabled="!updateStockForm.$valid" ng-click="putStock(updStock)">Update</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>

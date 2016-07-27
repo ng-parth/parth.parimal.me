@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <!--<script src="jquery-1.8.2.js"></script>-->
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        function addToList() {
+            var str = $('#txtInput').val();
+            try {
+                var a = str.split('=');
+                if (a.length == 2) {
+                    var regex = /[a-zA-Z0-9]/
+                    if (regex.test(a[0])) {
+                        if (regex.test(a[1])) {
+                            $('#ddlValuePair').append('<option value="' + a[0] + '=' + a[1] + '">' + a[0] + '=' + a[1] + '</option>');
+                            $('#txtInput').val('');
+                        }
+                        else {
+                            alert('Invalid string. Value field failed')
+                        }
+                    }
+                    else {
+                        alert('Invalid string. Name field failed')
+                    }
+                }
+                else {
+                    alert('Invalid string.No = sign or More than 1 = sign')
+                }
+
+
+            }
+            catch (e) {
+                alert('Invalid string. No = sign')
+            }
+        }
+
+        function deleteFromList() {
+            var values = $('#ddlValuePair option:selected').remove();
+            $('#txtInput').val('');
+        }
+
+        function sortByName() {
+            var options = $('#ddlValuePair option');
+            var jsonOptions = [];
+            for (var o = 0 ; o < options.length; o++) {
+                var o1 = (options[o].text).split('=');
+                jsonOptions.push({ name: o1[0], value: o1[1] });
+            }
+            jsonOptions.sort(function (a, b) {
+                if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                    return 1;
+                }
+                if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                    return -1;
+                }
+                // a must be equal to b
+                return 0;
+            });
+            $('#ddlValuePair option').remove();
+            for (var o = 0 ; o < options.length; o++) {
+                $('#ddlValuePair').append('<option value="' + jsonOptions[o].name + '=' + jsonOptions[o].value + '">' + jsonOptions[o].name + '=' + jsonOptions[o].value + '</option>');
+            }
+            $('#txtInput').val('');
+
+        }
+
+        function sortByValue() {
+            var options = $('#ddlValuePair option');
+            var jsonOptions = [];
+            for (var o = 0 ; o < options.length; o++) {
+                var o1 = (options[o].text).split('=');
+                jsonOptions.push({ name: o1[0], value: o1[1] });
+            }
+            jsonOptions.sort(function (a, b) {
+                if (a.value > b.value) {
+                    return 1;
+                }
+                if (a.value < b.value) {
+                    return -1;
+                }
+                // a must be equal to b
+                return 0;
+            });
+            $('#ddlValuePair option').remove();
+            for (var o = 0 ; o < options.length; o++) {
+                $('#ddlValuePair').append('<option value="' + jsonOptions[o].name + '=' + jsonOptions[o].value + '">' + jsonOptions[o].name + '=' + jsonOptions[o].value + '</option>');
+            }
+            $('#txtInput').val('');
+        }
+
+        function createXML() {
+            var xmlData = '<root> ';
+            var options = $('#ddlValuePair option');
+            var jsonOptions = [];
+            var innerRoot = '';
+            for (var o = 0 ; o < options.length; o++) {
+                var o1 = (options[o].text).split('=');
+                innerRoot += '\n\t<namevaluepair>  \n\t\t<name> ' + o1[0] + ' </name> ';
+                innerRoot += '\n\t\t<value> ' + o1[1] + ' </value> \n\t</namevaluepair> ';
+            }
+            xmlData += innerRoot + '\n</root>';
+            $('#txtXml').val(xmlData);
+        }
+    </script>
+</head>
+<body>
+
+    <input type="text" id="txtInput" />
+    <button id="btnAdd" onclick="addToList()">Add </button>
+    <button id="btnDelete" onclick="deleteFromList()">Delete </button>
+    <button id="btnSortByName" onclick="sortByName()">Sort by name</button>
+    <button id="btnSortByValue" onclick="sortByValue()">Sort by value</button>
+    <button id="btnCreateXml" onclick="createXML()">Create XML </button>
+
+    <br />
+    <br />
+    <select style="" id="ddlValuePair" multiple>
+        <option>a1=2w</option>
+        <option>s2=4e</option>
+        <option>d3=4s</option>
+        <option>q5=6v</option>
+    </select>
+    <br />    <br />
+    <br />
+    <textarea id="txtXml" disabled rows="100" cols="100"> </textarea>
+</body>
+</html>

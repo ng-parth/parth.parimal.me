@@ -1,0 +1,42 @@
+﻿<div ng-init="initStockList()">
+    <div class="row-fluid">
+        <div class="pull-left" ng-show="isAuth">
+
+            <b>{{loggedInUser}}</b>
+            <a ng-click="signOut()">Sign Out</a>
+        </div>
+
+        <div class="pull-left" ng-show="!isAuth">
+            <a href="#/login">Sign In</a>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <table class="table table-bordered">
+            <thead>
+                <tr ng-show="isAuth">
+                    <td colspan="6"><a href="#/create">Add new stock!</a></td>
+                </tr>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Current Price</th>
+                    <th>Previous Price</th>
+                    <th>%Change</th>
+                    <th ng-show="isAuth">Edit</th>
+
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr ng-repeat="stock in stocks">
+                    <td>{{stock.id}}</td>
+                    <td>{{stock.name}}</td>
+                    <td>{{stock.price | currency}}</td>
+                    <td>{{stock.previous| currency}}</td>
+                    <td><span ng-class="setGain(stock)"> <b> {{((stock.price - stock.previous)/stock.previous)*100 | number: 2 }}</b> </span></td>
+                    <td ng-show="isAuth"><a href="#/edit/{{stock.id}}"><i class="icon-edit"></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

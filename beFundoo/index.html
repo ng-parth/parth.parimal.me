@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html ng-app="fundooStockTicker">
+<head>
+
+
+    <link href="BS_2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Toastr/toastr.min.css" rel="stylesheet" />
+    <script src="Scripts/Lib/jquery-1.7.2.min.js"></script>
+    <script src="BS_2/js/bootstrap.min.js"></script>
+    <script src="Toastr/toastr.min.js"></script>
+    <script src="Scripts/Lib/angular.js"></script>
+
+    <script src="Scripts/App/fundooStockTicker.js"></script>
+    <script src="Scripts/Services/stockService.js"></script>
+    <script src="Scripts/Services/userService.js"></script>
+
+    <script src="Scripts/Services/factories.js"></script>
+    <script src="Scripts/Services/directives.js"></script>
+
+    <script src="Scripts/App/appCtrl.js"></script>
+    <script src="Scripts/App/listCtrl.js"></script>
+    <script src="Scripts/App/createCtrl.js"></script>
+    <script src="Scripts/App/editCtrl.js"></script>
+    <script src="Scripts/App/loginCtrl.js"></script>
+
+
+    <title>Fundoo Stock Ticker</title>
+</head>
+
+<body>
+    <h2>Fundoo Stock Application</h2>
+    <hr />
+    <div class="row-fluid">
+        <div class="offset1 span5" ng-view>
+        </div>
+        <div class="span5 ">
+            <div class="alert-info">
+                1) This app shows stock prices.<br />
+                2) If user is logged in, he can add or update existing stocks.<br />
+                3) If user tries to edit stocks that are not in the list, he will be warned and redirected to stock list.<br />
+                4) While edit, user cannot updates id to any existing id.<br />
+                5) User cant add new stock with id of any existing record.<br />
+                6) If user tries to access create or edit page without Signing In, he will be redirected to list page with a warning.<br />
+                7) If user is already logged in, he cant visit LOGIN page and will be redirected back to LIST page.<br />
+                8) User cannot submit any form unless all <b>required fields</b> are filled in forms CORRECTLY.<br />
+                9) User credentials are case sensitive.<br />
+                <br />
+                <b>NOTICE:</b><br />
+                1) User login will persist even after closing browser.<br />
+                2) You need to explicitly click 'SIGN OUT' to logout any user.
+
+                <br />
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

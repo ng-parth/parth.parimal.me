@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery highchecktree Plugin Demo</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="../js/highchecktree.js"></script>
+        <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="../css/highCheckTree.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <style type="text/css">
+        body { font-family:'Open Sans'; font-size:14px;}
+            #main-container{
+                width: 600px;
+                margin:  150px auto;
+            }
+            
+            #tree-container label.hover{
+                color: red;
+            }
+        </style>
+        
+    </head>
+    <body><div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+       <div id="main-container">
+       <h1>jQuery highchecktree Plugin Demo</h1>
+        <div id="tree-container"></div>
+       </div>
+        <script>
+                    var data = JSON.parse('[{"item":{"id":"334","label":"Temp for Upload","checked":false},"children":[{"item":{"id":"335","label":"Temp for Upload","checked":false}}]},{"item":{"id":"362","label":"Toys","checked":false},"children":[{"item":{"id":"379","label":"Infant Toys","checked":false}},{"item":{"id":"381","label":"Games & Puzzles","checked":false}},{"item":{"id":"393","label":"Sports and Outdoor Play","checked":false},"children":[{"item":{"id":"555","label":"tents","checked":false}},{"item":{"id":"580","label":"Launcher & toys","checked":false}}]},{"item":{"id":"395","label":"Pretend Play","checked":false},"children":[{"item":{"id":"548","label":"baking toys","checked":false}},{"item":{"id":"549","label":"gardening toys","checked":false}},{"item":{"id":"550","label":"costumes","checked":false}},{"item":{"id":"551","label":"Tattoos","checked":false}},{"item":{"id":"552","label":"Torch","checked":false}}]},{"item":{"id":"396","label":"Dolls & Dollhouses","checked":false}},{"item":{"id":"397","label":"Plush & Stuffed Toys","checked":false},"children":[{"item":{"id":"553","label":"stuffed toys","checked":false}},{"item":{"id":"554","label":"plush toys","checked":false}}]},{"item":{"id":"401","label":"Music & Instruments","checked":false}},{"item":{"id":"407","label":"Arts & Crafts","checked":false}},{"item":{"id":"411","label":"Building Blocks & Sets","checked":false}},{"item":{"id":"452","label":"Children Toys","checked":false}},{"item":{"id":"477","label":"Plasma Car","checked":false}},{"item":{"id":"480","label":"Puppets","checked":false}},{"item":{"id":"483","label":"Water Guns","checked":false}},{"item":{"id":"486","label":"Learning Toys","checked":false},"children":[{"item":{"id":"540","label":"magnetic toys","checked":false}},{"item":{"id":"541","label":"sensory toys","checked":false}},{"item":{"id":"542","label":"counting toys","checked":false}},{"item":{"id":"543","label":"alphabet toys","checked":false}}]},{"item":{"id":"507","label":"Bikes & Riding Toys","checked":false}},{"item":{"id":"520","label":"Wooden Toys","checked":false}},{"item":{"id":"651","label":"Holi Colors","checked":false}},{"item":{"id":"732","label":"Games and Puzzles - Infant","checked":false},"children":[{"item":{"id":"544","label":"puzzles","checked":false}},{"item":{"id":"545","label":"games","checked":false}}]},{"item":{"id":"733","label":"Games and Puzzles - Children","checked":false},"children":[{"item":{"id":"546","label":"puzzles","checked":false}},{"item":{"id":"547","label":"games","checked":false}}]},{"item":{"id":"734","label":"Bath & Beach Toys","checked":false}}]},{"item":{"id":"363","label":"Home & Kitchen","checked":false},"children":[{"item":{"id":"568","label":"Home Deco","checked":false},"children":[{"item":{"id":"317","label":"Wall Hook","checked":false}},{"item":{"id":"324","label":"Furniture","checked":false}}]}]},{"item":{"id":"364","label":"Accessories - Women","checked":false},"children":[{"item":{"id":"430","label":"Swimwear","checked":false},"children":[{"item":{"id":"365","label":"One Piece","checked":false}},{"item":{"id":"366","label":"Bikini Top","checked":false}},{"item":{"id":"367","label":"Bikini Bottom","checked":false}},{"item":{"id":"593","label":"Bikini Set","checked":false}}]},{"item":{"id":"431","label":"Innerwear","checked":false},"children":[{"item":{"id":"362","label":"Bra","checked":false}},{"item":{"id":"363","label":"Panties","checked":false}},{"item":{"id":"570","label":"One-Piece","checked":false}}]},{"item":{"id":"432","label":"Fashion","checked":false}},{"item":{"id":"433","label":"Footwear","checked":false}},{"item":{"id":"454","label":"Shawls & Stoles","checked":false}},{"item":{"id":"455","label":"Apron","checked":false}},{"item":{"id":"478","label":"Electronics","checked":false},"children":[{"item":{"id":"2","label":"Mobile Accessories","checked":false}},{"item":{"id":"329","label":"Speaker","checked":false}}]},{"item":{"id":"479","label":"Bags","checked":false},"children":[{"item":{"id":"80","label":"Suitcases","checked":false}},{"item":{"id":"81","label":"Diaper Bags","checked":false}},{"item":{"id":"89","label":"Travel Bag","checked":false}},{"item":{"id":"97","label":"Clutch","checked":false}},{"item":{"id":"98","label":"Sling Bag","checked":false}},{"item":{"id":"103","label":"Cosmetic Bag","checked":false}},{"item":{"id":"104","label":"Tote Bag","checked":false}},{"item":{"id":"106","label":"Duffle bag","checked":false}},{"item":{"id":"200","label":"Hand Bags","checked":false}},{"item":{"id":"353","label":"Laptop Bag","checked":false}},{"item":{"id":"354","label":"Accessories","checked":false}},{"item":{"id":"361","label":"Shopping bag","checked":false}},{"item":{"id":"379","label":"Drawstring","checked":false}},{"item":{"id":"382","label":"Luggage","checked":false}}]},{"item":{"id":"498","label":"Keychain","checked":false}},{"item":{"id":"499","label":"Pouch & Spec Case","checked":false}},{"item":{"id":"524","label":"Fitness","checked":false},"children":[{"item":{"id":"1","label":"Fitness Accessories","checked":false}}]},{"item":{"id":"532","label":"Accessories","checked":false}},{"item":{"id":"550","label":"Jewellery","checked":false},"children":[{"item":{"id":"391","label":"Bracelets","checked":false}},{"item":{"id":"392","label":"Necklace","checked":false}},{"item":{"id":"393","label":"Ring","checked":false}},{"item":{"id":"394","label":"Earrings","checked":false}},{"item":{"id":"397","label":"Lumba","checked":false}}]},{"item":{"id":"551","label":"Hair Accessories - Women","checked":false}},{"item":{"id":"552","label":"Scarves & Stoles","checked":false}},{"item":{"id":"553","label":"Watch","checked":false}},{"item":{"id":"554","label":"Wristlet","checked":false}},{"item":{"id":"555","label":"Paddle Brush","checked":false}},{"item":{"id":"563","label":"Tablet & Mobile Case","checked":false}},{"item":{"id":"564","label":"Mobile Accessories","checked":false}},{"item":{"id":"565","label":"Laptop Accessories","checked":false}},{"item":{"id":"646","label":"Umbrella","checked":false}},{"item":{"id":"683","label":"Organizer","checked":false}}]},{"item":{"id":"365","label":"Feeding","checked":false},"children":[{"item":{"id":"380","label":"Toddler Feeding","checked":false}},{"item":{"id":"385","label":"Infant Feeding","checked":false},"children":[{"item":{"id":"308","label":"Health","checked":false}},{"item":{"id":"343","label":"Feeding","checked":false}}]},{"item":{"id":"439","label":"Bottles - Children","checked":false},"children":[{"item":{"id":"75","label":"Sipper/Sports Bottle","checked":false}},{"item":{"id":"136","label":"Water Bottles","checked":false}},{"item":{"id":"140","label":"Bottle Accessories","checked":false}},{"item":{"id":"271","label":"Tumbler","checked":false}},{"item":{"id":"272","label":"Jar","checked":false}},{"item":{"id":"302","label":"Milk Bottles","checked":false}},{"item":{"id":"556","label":"Sippers","checked":false}},{"item":{"id":"557","label":"Feeding Bottles","checked":false}}]},{"item":{"id":"490","label":"Baby Food And Drinks","checked":false}},{"item":{"id":"492","label":"Lunchbox","checked":false}},{"item":{"id":"685","label":"Bottles- Adult","checked":false},"children":[{"item":{"id":"558","label":"Sports bottle","checked":false}}]},{"item":{"id":"686","label":"Pacifiers and teethers","checked":false}},{"item":{"id":"687","label":"Bibs & Burp Cloths","checked":false}},{"item":{"id":"688","label":"Food Pouches","checked":false}},{"item":{"id":"689","label":"Dishes and utensils - Children","checked":false},"children":[{"item":{"id":"559","label":"Bowl","checked":false}},{"item":{"id":"560","label":"forks","checked":false}},{"item":{"id":"561","label":"spoons","checked":false}},{"item":{"id":"562","label":"Plate","checked":false}}]},{"item":{"id":"690","label":"Mats","checked":false},"children":[{"item":{"id":"563","label":"Splat Mats","checked":false}},{"item":{"id":"564","label":"Place Mats","checked":false}}]}]}]');
+
+            var mockData = [];
+            mockData.push({
+                item:{
+                    id: 'id1',
+                    label: 'Lorem ipsum dolor 1',
+                    checked: false
+                },
+                children: [{
+                   item:{
+                        id: 'id11',
+                        label: 'Lorem ipsum dolor 11',
+                        checked: false
+                    } 
+                },{
+                   item:{
+                        id: 'id12',
+                        label: 'Lorem ipsum dolor 12',
+                        checked: false
+                    } 
+                },{
+                   item:{
+                        id: 'id13',
+                        label: 'Lorem ipsum dolor 13',
+                        checked: false
+                    } 
+                }]
+            });
+
+            mockData.push({
+                item:{
+                    id: 'id2',
+                    label: 'Lorem ipsum dolor 2',
+                    checked: false
+                },
+                children: [{
+                   item:{
+                        id: 'id21',
+                        label: 'Lorem ipsum dolor 21',
+                        checked: false
+                    } 
+                },{
+                   item:{
+                        id: 'id22',
+                        label: 'Lorem ipsum dolor 22',
+                        checked: true
+                    } 
+                },{
+                   item:{
+                        id: 'id23',
+                        label: 'Lorem ipsum dolor 23',
+                        checked: false
+                    } 
+                }]
+            });
+
+            mockData.push({
+                item:{
+                    id: 'id3',
+                    label: 'Lorem ipsum dolor 3',
+                    checked: false
+                },
+                children: [{
+                   item:{
+                        id: 'id31',
+                        label: 'Lorem ipsum dolor 31',
+                        checked: true
+                    } 
+                },{
+                   item:{
+                        id: 'id32',
+                        label: 'Lorem ipsum dolor 32',
+                        checked: false
+                    },
+                    children: [{
+                        item:{
+                            id: 'id321',
+                            label: 'Lorem ipsum dolor 321',
+                            checked: false
+                        }
+                    },{
+                        item:{
+                            id: 'id322',
+                            label: 'Lorem ipsum dolor 322',
+                            checked: false
+                        }
+                    }]
+                }]
+            });
+
+            $('#tree-container').highCheckTree({
+                data: data
+            });
+        </script> 
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

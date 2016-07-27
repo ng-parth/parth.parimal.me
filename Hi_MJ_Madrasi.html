@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Parth Mistry | Reply</title>
+    <link rel="icon" type="image/ico" href="images/starblt.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Scripts -->
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/angular.js"></script>
+    <script>
+        var feedback = angular.module('feedback', []);
+        feedback.controller('appCtrl', function ($scope) {
+            $scope.showAlternatives = true; $scope.showDreams = true;
+            $scope.serializeFeedback = function (listItems, alternatives, dreams) {
+                debugger;
+                var a = [];
+                a.push(listItems);
+                a.push(alternatives);
+                a.push(dreams);
+
+                $('#message').val(JSON.stringify(a));
+            };
+            $scope.showHide = function (tag) {
+                $scope[tag] = !$scope[tag];
+            };
+            $scope.mySay = [
+                { id: 1, say: 'Thank you for the wonderful lunch, it was one of the good combination lunch I ever had. Not lying but a fact. Hope to have such food again and again and again.' },
+                { id: 2, say: 'You gave the peace of mind and a feeling of safety and security for my family.' },
+                { id: 3, say: 'Throughout the journey, always found u compatible and respectable in every aspect of life: May it be a family or social function or other such events.' },
+                { id: 4, say: 'U ask me to leave u but how can I leave you? If u remember, once during our walk back to home, I promised you I will never leave your hand and u.' },
+                { id: 5, say: "U say u trust my promise and me. Then trust me blindly and I'll not prove u blind. Just be with me and u dont need to do anything, I'll handle everything but u just be with me." },
+                { id: 6, say: 'Never give up. Keep taking the light of hope from my candle and it will keep you brighten.' },
+                { id: 7, say: 'I was always porud when u said that I care like your dad. There can not be any better moment than this.'},
+		{ id: 8, say: 'The last wish to sleep in your lap like a child and u keep your hand on my forehead.'},
+		{ id: 9, say: "In the end, atleast have a lifetime memorable day, something like DDLJs 'Ja Simaran je le apni zindagi', that u lived a whole life in a day... I'll be curiously waiting for such a memorable day." },
+		{ id: 10,say: 'Some fear which I dont wish to be real. Like after 2-3 years, m successful but still single and u wud regret that if u wud have supported, we both would be togather and more successful and happy.'}
+            ];
+            $scope.listItems = [
+            { id: 1, title: 'Your Comments on Me.', rpl: '' },
+            { id: 2, title: 'Likes and Dislikes 4 me.', rpl: '' },
+            { id: 3, title: 'View on Bday gifts.', rpl: '' },
+            { id: 4, title: 'How much you trust on my promises.', rpl: '' },
+            { id: 5, title: 'Do u feel childish with all such paper and pens.', rpl: '' },
+            { id: 6, title: 'Change in me.', rpl: '' },
+            { id: 7, title: '5 Rs Note.', rpl: '' }
+            ];
+            $scope.dreams = [
+                { id: 1, title: 'All White', desc: '=> Everything white, the room, the walls, bed, our cloths. => I was so restless, cant rest, cant think cant sleep, so disturbed. => Then u took my head in your lap, made me cool, hold my fingers and made sleep peacefully.', rpl: '' },
+                { id: 2, title: 'Welcome Khushi!', desc: '=> Bright hospital room, my mom resting and our mom with new born baby, I come in swift. => My dad on the way. => Every1 so happy, U call me near u, kiss me on my cheeks, and thank me for this wonderful moment. => and as everyone is happy, we decide to name the new comer "KHUSHI"', rpl: '' },
+                { id: 3, title: 'Happy U..', desc: 'The last day before our diwali vacation. => U call me in evening. U missed the bus to Idar and was alone. U insist me to come as u dont want to be with Mitul. => After much arguments, I come, u need me so badly, I was there with u. U wer so passionate. Our favourite spot, the small space. The things went long. At the end u were so peaceful, secured, happy. => It was like u dont need anything else from life. U cuddle me like a small child hold his mother and went to sleep. => U look so peaceful and cute while sleeping.', rpl: '' },
+                { id: 4, title: 'Terrible fight with u and a nice sleep.', desc: 'The day we met after u wer back from diwali vacation. We were at our home. We had a  fight, a very fierce and violent fight. We fought with utensils, shoes, chappals and household items. And I dont remember in between but at the end, we both went to sleep cuddling each other strongly. There was a glow on your face.', rpl: '' },
+                { id: 5, title: 'Cracked lips.', desc: 'It was our Birthday. I was on back to drop u home. We got out from auto near that small lane. I the lane, u :* me in open, in public. U :* me so hard and passionately the my lips cracked and it bleeded.', rpl: '' },
+                { id: 6, title: 'Khusi is growing. 1st bday', desc: "It was KHUSHI's 1st Bday. We came out of our bunglow with whole family: Our Parents, Deep & Mayur. All were so happy to celebrate. I was in our car, Khushi with our mom. U beside me, our moms on backseat. Mayur driving Dad's car, Deep with him and our dads on backseat. We all go to some beach and enjoy. Khushi's looks resembels to you. Same round face, and same nose. But the color is a bit fair like me.", rpl: '' }
+            ];
+            $scope.alternatives = [
+                { id: 1, name: "Dad Ready.", desc: "Make dad ready, will try in new ways if one way doesnt work.", effective: "Yes, but time comnsuming. But will wait.", rating: "7", chance: "100%", yourRating: "" },
+                { id: 2, name: "Truth to MD.", desc: "Make aware of the truth or some other ways for MD like priority to career.", effective: "Yes, and can be done in very polite way.", rating: "10", chance: "100%", yourRating: "" },
+                { id: 3, name: "No for all.", desc: "No for MD as MJ dont want him. No for PM as dad dont want him. So will not go against dad, and you also dont need to compromise.", effective: "Yes, and can be the best way.", rating: "9", chance: "100%", yourRating: "" },
+                { id: 4, name: "MotaPapa and all.", desc: "We will discuss the matter with other family members. There are possibilities of your rescue.", effective: "Yes.", rating: "7", chance: "80%", yourRating: "" },
+                { id: 5, name: "In-Laws", desc: "We can inform in-laws that u cant risk families.", effective: "Yes but little risky.", rating: "7", chance: "80%", yourRating: "" },
+                { id: 6, name: "Elop", desc: "Things are planned out. For career, for stay, for future. Everything will be taken care of.", effective: "50%", rating: "7", chance: "100%", yourRating: "" },
+                { id: 7, name: "Jump", desc: "-", effective: "0%. Most risky. Any other option is better than this.", rating: "3", chance: "-100%", yourRating: "" },
+                { id: 8, name: "Rumors", desc: "Can spread rumours about our relationship.", effective: "50% Various factor affect the success.", rating: "5", chance: "50%", yourRating: "" },
+                { id: 9, name: "Cvl Mrg and wait till accept.", desc: "Can be officially togather. After that 2 chances.(1) Ask dad to be ready for us and we will wait till he agrees. (2) If he dont accept u, there is a family always ready to accept us.", effective: "Yes. The best option for confirmed success but also can see other options.", rating: "8", chance: "100%", yourRating: "" },
+                { id: 10, name: "Jab We Met.", desc: "", effective: "Most effective.", rating: "6", chance: "80%", yourRating: "" }
+            ];
+
+        });
+    </script>
+    <script type="text/javascript" src="js/contact.js"></script>
+
+</head>
+<body ng-controller="appCtrl" ng-app="feedback">
+    <div id="wrapper" class="container_12 clearfix">
+        <!-- Text Logo -->
+        <a href="http://www.parimal.me/parthm" class="portfolio_item">
+           <img src="images/ParthM Logo.png" class="grid_2 float" /></a>
+        <!-- Navigation Menu -->
+        <ul id="navigation" class="grid_8 right">
+            <li><a href="contact.html" class="current"><span class="meta">Get in touch</span><br />
+                Contact Me</a></li>
+            <li><a href="blog.html"><span class="meta">Latest news</span><br />
+                Blog</a></li>
+            <li><a href="portfolio.html"><span class="meta">Me and my work</span><br />
+                Portfolio</a></li>
+            <li><a href="about.html"><span class="meta">Who am I?</span><br />
+                About Me</a></li>
+            <li><a href="index.html"><span class="meta">Homepage</span><br />
+                Home</a></li>
+        </ul>
+        <div class="hr grid_12 clearfix">
+            &nbsp;
+        </div>
+        <!-- Caption Line -->
+        <h2 class="grid_12 caption clearfix">Liked my work? or Wanna ask more? Plz <span>contact me</span>! 
+            <br />
+        </h2>
+        <div class="hr grid_12 clearfix">
+            &nbsp;
+        </div>
+        <div id="featured" class="clearfix grid_12">
+            <img src="images/madrasi.jpg" alt="Jaan" class="img_left" /><img src="images/madrasi2.jpg" alt="Jaan" class="img_right"  />
+        </div>
+        <div class="hr grid_12 clearfix">
+            &nbsp;
+        </div>
+        <!-- Column 1 / Content -->
+        <div class="grid_8">
+            <p>
+                Your Reply means a lot.. :* :)
+            </p>
+            <div class="hr dotted clearfix">
+            </div>
+            <form action="index.html" method='post' id='feedback_form'>
+                <h2><a>My Say!! </a></h2>
+                <div class="hr dotted clearfix">&nbsp;</div>
+                <div ng-repeat="say in mySay">
+                    <p>{{say.say}}</p>
+                    <div class="hr dotted clearfix">&nbsp;</div>
+                </div>
+
+                <h2><a style="text-decoration: underline" ng-click="showHide('showAlternatives')">Alternatives!! </a></h2>
+                <div class="hr dotted clearfix">
+                </div>
+                <div ng-show="showAlternatives">
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Alternative</th>
+                                <th>Effective</th>
+                                <th>Chance</th>
+                                <th>Rating</th>
+                                <th>You Like?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="alternative in alternatives">
+                                <td>{{' '+  alternative.id +' '}}</td>
+                                <td><i>{{alternative.name}}</i>
+                                    <br />
+                                    {{alternative.desc}}</td>
+                                <td>{{' '+  alternative.effective  +' '}}</td>
+                                <td>{{' '+  alternative.rating +' '}}</td>
+                                <td>{{' '+  alternative.chance+' '}}</td>
+                                <td>
+                                    <input type="checkbox" ng-model="alternative.yourRating" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="hr dotted clearfix">
+                </div>
+                <h2><a ng-click="showHide('showDreams')" style="text-decoration: underline">Dreams!! </a></h2>
+                <div class="hr dotted clearfix">
+                </div>
+                <div ng-show="showDreams">
+                    <div ng-repeat="dream in dreams">
+                        <h4 class="page_title">{{dream.id +'. ' +dream.title}}</h4>
+                        <div class="hr dotted clearfix">&nbsp;</div>
+                        <p>
+                            {{dream.desc}}
+                            <br />
+                            <input type="text" ng-model="dream.rpl" placeholder="comment." />
+                        </p>
+
+                    </div>
+                </div>
+                <div class="hr dotted clearfix">
+                </div>
+                <h2 style="text-decoration: underline">Something about me!! </h2>
+                <div class="hr dotted clearfix">
+                </div>
+                <ul ng-show="true">
+                    <li class="clearfix" ng-repeat="item in listItems">
+                        <label for="{{'item'+ item.id}}">{{item.title}}</label><br />
+                        <textarea name="{{'item'+ item.id}}" id="{{'item'+ item.id}}" ng-model="item.rpl" rows="5" cols="30">
+                        </textarea>
+                        <div class="clear">
+                        </div>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="clearfix" ng-show="false">
+                        <label for="message">Message</label>
+                        <textarea name='message' id='message' rows="30" cols="30"></textarea>
+                        <div class="clear">
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <p id='mail_success' class='success'>
+                            Thank you Madrasi. Trust me and say YES.
+                            <br />
+                            Take Care. LUV U.. 
+                        </p>
+                        <p id='mail_fail' class='error'>
+                            Sorry, an error has occured. Please try again later.
+                        </p>
+                        Done
+                        <input type="checkbox" ng-model="done" />
+                        <div id="button">
+                            <input type='submit' ng-disabled="!done" ng-click="serializeFeedback(listItems , dreams, alternatives)" id='send_feedback' value='Reply' />
+                        </div>
+                    </li>
+                </ul>
+                <div class="hr dotted clearfix">
+                </div>
+            </form>
+        </div>
+        <!-- Column 2 / Sidebar -->
+        <div class="grid_4 contact">
+            <!-- Adress and Phone Details -->
+            <h4>What here??</h4>
+            <div class="hr dotted clearfix">
+                &nbsp;
+            </div>
+            <a>My Say!</a>
+            <div class="hr dotted clearfix">
+                &nbsp;
+            </div>
+            <a style="text-decoration: underline" ng-click="showHide('showAlternatives')">Alternatives!! </a>
+            <div class="hr dotted clearfix">
+                &nbsp;
+            </div>
+            <a style="text-decoration: underline" ng-click="showHide('showDreams')">Dreams!!</a>
+            <div class="hr dotted clearfix">
+                &nbsp;
+            </div>
+            <a>Something on Me!</a>
+            <div class="hr dotted clearfix">
+                &nbsp;
+            </div>
+        </div>
+        <div class="hr grid_12 clearfix">
+            &nbsp;
+        </div>
+        <!-- Footer -->
+        <p class="grid_12 footer clearfix">
+            <span class="float"><b>&copy; Copyright: </b>Parth Mistry via <a href="">www.parimal.me
+            </a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> <a href="https://www.facebook.com/ppmistry204">
+                <img src="images/facebook.png" /></a>&nbsp; <a href="https://twitter.com/@Parth_Mistry">
+                    <img src="images/twitter.png" /></a>&nbsp; <a href="https://in.linkedin.com/in/ppmistry204/">
+                        <img src="images/linkedin.png" /></a> <a class="float right" href="#">top</a>
+        </p>
+    </div>
+    <!--end wrapper-->
+</body>
+</html>

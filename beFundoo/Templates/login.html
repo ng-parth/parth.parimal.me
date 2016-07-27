@@ -1,0 +1,24 @@
+﻿ <div>
+    <form name="loginForm" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" >Username <span class="text-error">*</span></label>
+            <div class="controls">
+                <input type="text" placeholder="Username" ng-model="user.username" required>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Password <span class="text-error">*</span></label>
+            <div class="controls">
+                <input type="password"  placeholder="Password" ng-model="user.password" required >
+            </div>
+        </div>
+        <span class="text-error">*</span> indicates required fields.
+        <div class="control-group">
+            <div class="controls">
+                <button class="btn btn-primary" ng-disabled="!loginForm.$valid"  ng-click="postLogin(user)">Sign in</button>
+                <a class="btn" href="#/" >Cancel</a>
+                
+            </div>
+        </div>
+    </form>
+</div>
